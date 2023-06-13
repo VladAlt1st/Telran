@@ -1,8 +1,5 @@
 
 public class TimeComplexityTasks {
-    public static void main(String[] args) {
-        task3(100000);
-    }
 
     // Практические задачи: какова временная сложность?
 
