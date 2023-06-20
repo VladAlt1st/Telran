@@ -37,9 +37,9 @@ public class TowerOfHanoi {
     // Рекурсивно
     private static void hanoiTowerRec(Stack<Integer> left, Stack<Integer> mid, Stack<Integer> right, int count) {
         if (count > 0){
-            hanoiTowerRec(left, right, mid,count-1); // перенести башню из n−1 диска на 2-й штырь
-            right.push(left.pop()); // переносим самый большой диск на 3-й штырь
-            hanoiTowerRec(mid, left, right,count-1); // перенеси башню из n−1 диска на 3-й штырь
+            hanoiTowerRec(left, right, mid,count-1);
+            right.push(left.pop());
+            hanoiTowerRec(mid, left, right,count-1);
         }
     }
 
