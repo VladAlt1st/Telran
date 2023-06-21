@@ -15,32 +15,31 @@ public class TowerOfHanoi {
     Итеративно
     Рекурсивно*/
     public static void main(String[] args) {
-        Stack<Integer> left = new Stack<>();
-        Stack<Integer> mid = new Stack<>();
-        Stack<Integer> right = new Stack<>();
+        Stack<Integer> src = new Stack<>();
+        Stack<Integer> help = new Stack<>();
+        Stack<Integer> dest = new Stack<>();
 
-        left.push(1);
-        left.push(2);
-        left.push(3);
+        src.push(1);
+        src.push(2);
+        src.push(3);
 
-        System.out.print(left);
-        System.out.print(mid);
-        System.out.println(right);
+        System.out.print(src);
+        System.out.print(help);
+        System.out.println(dest);
 
-        hanoiTowerRec(left, mid, right, left.size());
+        hanoiTowerRec(src, help, dest, src.size());
 
-        System.out.print(left);
-        System.out.print(mid);
-        System.out.println(right);
+        System.out.print(src);
+        System.out.print(help);
+        System.out.println(dest);
     }
 
     // Рекурсивно
-    private static void hanoiTowerRec(Stack<Integer> left, Stack<Integer> mid, Stack<Integer> right, int count) {
-        if (count > 0){
-            hanoiTowerRec(left, right, mid,count-1);
-            right.push(left.pop());
-            hanoiTowerRec(mid, left, right,count-1);
-        }
+    private static void hanoiTowerRec(Stack<Integer> src, Stack<Integer> help, Stack<Integer> dest, int n) {
+        if (n == 0) return;
+        hanoiTowerRec(src, dest, help, n - 1);
+        dest.push(src.pop());
+        hanoiTowerRec(help, src, dest, n - 1);
     }
 
     // Итеративно --
